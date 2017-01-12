@@ -19,6 +19,6 @@ public interface UserDao {
 
     public List<User> listUsers(Integer first, String name2);
 
-    public Map<Integer, Integer> listPages(/*Integer first, */String name2);
+    public Map<Integer, Integer> listPages(String name2);
 
 }

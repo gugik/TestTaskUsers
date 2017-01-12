@@ -1,6 +1,5 @@
 package net.userManager.Model;
 
-import java.sql.Timestamp;
 import java.util.Date;
 
 import javax.persistence.*;
@@ -24,7 +23,6 @@ public class User {
     private boolean admin;
 
     @Column (name = "createdDate")
-    //@GeneratedValue(strategy = GenerationType.AUTO)
     private Date createdDate = new Date();
 
     public int getId() {

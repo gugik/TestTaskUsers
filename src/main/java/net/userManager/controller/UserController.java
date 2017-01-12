@@ -23,7 +23,6 @@ public class UserController {
     public String listUsers(Model model,
 
                             @PathVariable ("first") Integer first,
-                            //@RequestParam(value="first", required=false) Integer first,
                             @RequestParam(value="name", required=false) String name
     ){
 
@@ -57,7 +56,6 @@ public class UserController {
     public String editUser(@PathVariable("id") int id, Model model ){
         model.addAttribute("user", this.userService.getUserById(id));
         model.addAttribute("listUsers", this.userService.listUsers(0,null));
-       // model.addAttribute("listPages", this.userService.listPages());
 
         return "users";
     }

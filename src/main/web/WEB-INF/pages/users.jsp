@@ -79,19 +79,6 @@
     </table>
 </c:if>
 
-<%--<c:if test="${!empty listUsers}">
-
-    <c:forEach items="${listPages}" var="list" >
-        <tr>
-
-            <a href="<c:url value='/users/${list.value}'/>">${list.key}</a>
-
-        </tr>
-    </c:forEach>
-
-</c:if>--%>
-
-
 <br/>
 <c:if test="${!empty listUsers}">
 

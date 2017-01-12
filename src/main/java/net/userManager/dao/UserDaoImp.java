@@ -84,8 +84,6 @@ public class UserDaoImp implements UserDao {
 
         List<User> userList/* = session.createQuery("from User").list()*/;
 
-        //if (first==null) first=0;
-
         if (name2==null) {
             userList = session.createQuery("from User").list();
         }

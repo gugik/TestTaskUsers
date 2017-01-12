@@ -41,7 +41,7 @@ public class UserServiceImp implements UserService{
         return this.userDao.listUsers(first, name2);
     }
     @Transactional
-    public Map<Integer, Integer> listPages(/*Integer first,*/ String name2) {
-        return this.userDao.listPages(/*first,*/ name2);    }
+    public Map<Integer, Integer> listPages(String name2) {
+        return this.userDao.listPages(name2);    }
 
 }
