@@ -35,6 +35,8 @@
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect
                 </prop>
                 <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">create-drop</prop>
+                <prop key="hibernate.hbm2ddl.import_files">/test_users.sql</prop>
             </props>
         </property>
     </bean>

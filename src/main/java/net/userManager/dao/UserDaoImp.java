@@ -57,8 +57,6 @@ public class UserDaoImp implements UserDao {
         List<User> userList;
         Session session = this.sessionFactory.getCurrentSession();
 
-        //if (first==null)first=0;
-
         if (name2==null) {
             userList = session.createQuery("from User").setFirstResult(first).
                     setMaxResults(5).list();
@@ -98,7 +96,7 @@ public class UserDaoImp implements UserDao {
 
         int page = 1;
 
-        for (int i = 0; i <= userList.size(); i=i+5) {
+        for (int i = 0; i < userList.size(); i=i+5) {
             listPages.put(page, i);
             page++;
         }
