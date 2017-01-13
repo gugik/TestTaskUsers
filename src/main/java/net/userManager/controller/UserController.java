@@ -8,6 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+import java.util.TreeMap;
+
 @Controller
 public class UserController {
 
@@ -36,13 +39,22 @@ public class UserController {
 
     @RequestMapping(value = "/users/add", method = RequestMethod.POST)
     public String addUser(@ModelAttribute("user") User user){
+        Integer c;
         if(user.getId() == 0){
+
             this.userService.add(user);
+            Map<Integer, Integer> pageMap=this.userService.listPages(null);
+            c=pageMap.get(pageMap.size());
+            //Integer c = new TreeMap<Integer,Integer>(pageMap).descendingMap().firstEntry().getValue();
+            if (c == null) c = 0;
+
         }else {
+
             this.userService.update(user);
+            c=0;
         }
 
-        return "redirect:/users/0";
+        return "redirect:/users/"+c;
     }
 
     @RequestMapping("/remove/{id}")
@@ -56,13 +68,7 @@ public class UserController {
     public String editUser(@PathVariable("id") int id, Model model ){
         model.addAttribute("user", this.userService.getUserById(id));
         model.addAttribute("listUsers", this.userService.listUsers(0,null));
-
-        return "users";
-    }
-
-    @RequestMapping("userdata/{id}")
-    public String userData(@PathVariable("id") int id, Model model){
-        model.addAttribute("user", this.userService.getUserById(id));
+        model.addAttribute("listPages", this.userService.listPages(null));
 
         return "userdata";
     }

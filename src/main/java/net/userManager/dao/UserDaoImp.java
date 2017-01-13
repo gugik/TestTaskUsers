@@ -58,12 +58,14 @@ public class UserDaoImp implements UserDao {
         Session session = this.sessionFactory.getCurrentSession();
 
         if (name2==null) {
-            userList = session.createQuery("from User").setFirstResult(first).
-                    setMaxResults(5).list();
+            userList = session.createQuery("from User ")
+                    .setFirstResult(first)
+                    .setMaxResults(5)
+                    .list();
         }
         else {
             userList = session
-                    .createQuery("FROM User WHERE name LIKE :search")
+                    .createQuery("FROM User WHERE name LIKE :search ")
                     .setParameter("search", "%" + name2 + "%")
                     .setFirstResult(first)
                     .setMaxResults(5)
@@ -77,10 +79,10 @@ public class UserDaoImp implements UserDao {
     }
 
     @SuppressWarnings("unchecked")
-    public Map<Integer, Integer> listPages(/*Integer first, */String name2) {
+    public Map<Integer, Integer> listPages(String name2) {
         Session session = this.sessionFactory.getCurrentSession();
 
-        List<User> userList/* = session.createQuery("from User").list()*/;
+        List<User> userList;
 
         if (name2==null) {
             userList = session.createQuery("from User").list();

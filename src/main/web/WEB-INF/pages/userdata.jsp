@@ -50,7 +50,7 @@
 
 </head>
 <body>
-<h1>Book Details</h1>
+<h1>User Details</h1>
 
 <table class="tg">
     <tr>
@@ -69,5 +69,70 @@
 
     </tr>
 </table>
+
+<br>
+<br>
+
+<h1>Edit the User </h1>
+
+<c:url var="addAction" value="/users/add"/>
+
+<form:form action="${addAction}" commandName="user">
+    <table>
+        <c:if test="${!empty user.name}">
+            <tr>
+                <td>
+                    <form:label path="id">
+                        <spring:message text="ID"/>
+                    </form:label>
+                </td>
+                <td>
+                    <form:input path="id" readonly="true" size="8" disabled="true"/>
+                    <form:hidden path="id"/>
+                </td>
+            </tr>
+        </c:if>
+        <tr>
+            <td>
+                <form:label path="name">
+                    <spring:message text="Name"/>
+                </form:label>
+            </td>
+            <td>
+                <form:input path="name"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form:label path="age">
+                    <spring:message text="Age"/>
+                </form:label>
+            </td>
+            <td>
+                <form:input path="age"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form:label path="admin">
+                    <spring:message text="isAdmin"/>
+                </form:label>
+            </td>
+            <td>
+                <form:input path="admin"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <c:if test="${!empty user.name}">
+                    <input type="submit"
+                           value="<spring:message text="Edit User"/>"/>
+                </c:if>
+            </td>
+        </tr>
+    </table>
+</form:form>
+
 </body>
 </html>

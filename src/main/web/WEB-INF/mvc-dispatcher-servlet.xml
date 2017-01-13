@@ -41,7 +41,7 @@
         </property>
     </bean>
 
-    <!--BookDao and BookService beans-->
+    <!--UserDao and UserService beans-->
     <bean id="userDao" class="net.userManager.dao.UserDaoImp">
         <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"/>
     </bean>

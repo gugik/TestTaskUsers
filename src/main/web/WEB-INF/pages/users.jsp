@@ -53,6 +53,8 @@
 
 <h1>User List</h1>
 
+<c:if test="${empty listUsers}"> Not found
+</c:if>
 <c:if test="${!empty listUsers}">
     <table class="tg">
         <tr>
@@ -68,7 +70,7 @@
         <c:forEach items="${listUsers}" var="user">
             <tr>
                 <td>${user.id}</td>
-                <td><a href="/userdata/${user.id}" target="_blank">${user.name}</a></td>
+                <td>${user.name}</td>
                 <td>${user.age}</td>
                 <td>${user.admin}</td>
                 <td>${user.createdDate}</td>
@@ -80,16 +82,17 @@
     </table>
 </c:if>
 
+
 <br/>
 <c:if test="${!empty listUsers}">
 
-        <c:forEach items="${listPages}" var="list" >
-            <tr>
+    <c:forEach items="${listPages}" var="list">
+        <tr>
 
-                <a href="<c:url value='/users/${list.value}?name=${namesearch}'/>">${list.key}</a>
+            <a href="<c:url value='/users/${list.value}?name=${namesearch}'/>">${list.key}</a>
 
-            </tr>
-        </c:forEach>
+        </tr>
+    </c:forEach>
 
 </c:if>
 
@@ -112,7 +115,7 @@
 </form>
 
 
-<h1>Add a User or update a User</h1>
+<h1>Add a User </h1>
 
 <c:url var="addAction" value="/users/add"/>
 
